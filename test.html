@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>测试按钮</title>
+</head>
+<body>
+    <h1>测试按钮功能</h1>
+    <input type="text" id="shareLink" placeholder="输入测试链接">
+    <button onclick="parseVideo()" id="parseBtn">开始解析</button>
+    <div id="resultArea" style="display:none;">
+        <h2>解析结果</h2>
+        <p id="videoTitle">测试视频</p>
+    </div>
+    
+    <script>
+        function parseVideo() {
+            console.log('按钮被点击了！');
+            alert('按钮工作正常！');
+            
+            const shareText = document.getElementById('shareLink').value;
+            if (!shareText) {
+                alert('请输入链接！');
+                return;
+            }
+            
+            document.getElementById('parseBtn').textContent = '解析中...';
+            
+            setTimeout(() => {
+                document.getElementById('resultArea').style.display = 'block';
+                document.getElementById('videoTitle').textContent = '解析成功：' + shareText;
+                document.getElementById('parseBtn').textContent = '开始解析';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
